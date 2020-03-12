@@ -4,7 +4,7 @@ CFLAGS = -g -Wall
 default: afnd
 
 afnd: lista.o quintupla.o afnd.o
-	$(CC) ${CFLAGS} -o afnd afnd.o lista.o quintupla.o
+	$(CC) ${CFLAGS} -o ../afnd afnd.o lista.o quintupla.o
 
 afnd.o: afnd.c quintupla.h
 	$(CC) ${CFLAGS} -c afnd.c
@@ -16,4 +16,4 @@ quintupla.o: quintupla.c quintupla.h
 	$(CC) ${CFLAGS} -c quintupla.c
 
 clean:
-	rm afnd *.o
+	rm ../afnd *.o
