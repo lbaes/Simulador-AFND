@@ -78,7 +78,7 @@ int main(void)
         }
     }
 
-    
+
     deletarMT(quin.matriz, quin.qntEstados, quin.tamAlfabeto);
 }
 
