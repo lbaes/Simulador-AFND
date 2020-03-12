@@ -22,11 +22,9 @@ int main(void)
 
 
     for (int i = 0; i < quin.qntEstadosFinais; i++)
-    {
         fscanf(fp, "%d", &(quin.listaEstadosFinais[i]));
-        //printf("%d\n", quin.listaEstadosFinais[i]);
-    }
-
+        
+    
     fscanf(fp, "%d", &(quin.numTrasicoes));
     quin.matriz = alocarMT(quin.qntEstados, quin.tamAlfabeto);
 
@@ -36,8 +34,6 @@ int main(void)
         fscanf(fp, "%d", &qIncial);
         fscanf(fp, "%c", &c);
         fscanf(fp, "%d", &qFinal);
-
-        //printf("\n%d %c %d\n", qIncial, c, qFinal);
 
         inserir(&(quin.matriz[qIncial][indexOf(c, quin.alfabeto)]), qFinal);
     }
@@ -81,6 +77,8 @@ int main(void)
             printf(" not ok\n");
         }
     }
+
+    
     deletarMT(quin.matriz, quin.qntEstados, quin.tamAlfabeto);
 }
 

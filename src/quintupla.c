@@ -44,4 +44,5 @@ void deletarMT(List** mt, int qntEstados, int tamAlfabeto)
             deleteList(&(mt[i][j]));
         }
     }
+    free(mt);
 }

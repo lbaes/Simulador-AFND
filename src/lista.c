@@ -41,7 +41,7 @@ void printList(List l)
     while(cursor != NULL)
     {   
         if (cursor->data != -1)
-            printf("%d ", cursor->data);
+            printf(" %d ", cursor->data);
         cursor = cursor->next;
     }
     printf("]");
