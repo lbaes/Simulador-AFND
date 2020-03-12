@@ -24,7 +24,7 @@ int main(void)
     for (int i = 0; i < quin.qntEstadosFinais; i++)
     {
         fscanf(fp, "%d", &(quin.listaEstadosFinais[i]));
-        printf("%d\n", quin.listaEstadosFinais[i]);
+        //printf("%d\n", quin.listaEstadosFinais[i]);
     }
 
     fscanf(fp, "%d", &(quin.numTrasicoes));
@@ -37,7 +37,7 @@ int main(void)
         fscanf(fp, "%c", &c);
         fscanf(fp, "%d", &qFinal);
 
-        printf("\n%d %c %d\n", qIncial, c, qFinal);
+        //printf("\n%d %c %d\n", qIncial, c, qFinal);
 
         inserir(&(quin.matriz[qIncial][indexOf(c, quin.alfabeto)]), qFinal);
     }

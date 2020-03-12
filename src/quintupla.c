@@ -41,7 +41,7 @@ void deletarMT(List** mt, int qntEstados, int tamAlfabeto)
     {
         for (int j = 0; j < tamAlfabeto; j++)
         {
-            deleteList(&(mt[i][j])); //mt[i]+j = (*(mt+i)+j)
+            deleteList(&(mt[i][j]));
         }
     }
 }

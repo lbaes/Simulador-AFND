@@ -16,4 +16,4 @@ quintupla.o: quintupla.c quintupla.h
 	$(CC) ${CFLAGS} -c quintupla.c
 
 clean:
-	rm ../afnd *.o
+	rm ../afnd.out *.o

@@ -39,8 +39,9 @@ void printList(List l)
     Node* cursor = l.head;
     printf("[");
     while(cursor != NULL)
-    {
-        printf("%d ", cursor->data);
+    {   
+        if (cursor->data != -1)
+            printf("%d ", cursor->data);
         cursor = cursor->next;
     }
     printf("]");
