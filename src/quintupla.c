@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "quintupla.h"
 
+//Aloca uma matriz de listas
 List** alocarMT(int qntEstados, int tamAlfabeto)
 {
     List** newList = malloc(qntEstados * sizeof(List *));
@@ -21,6 +22,7 @@ List** alocarMT(int qntEstados, int tamAlfabeto)
     return newList;
 }
 
+//-Printa a matriz
 void printMatrizTransicao(List** mt, int qntEstados, int tamAlfabeto)
 {
     for (int i = 0; i < qntEstados; i++)
@@ -34,7 +36,7 @@ void printMatrizTransicao(List** mt, int qntEstados, int tamAlfabeto)
     }
 }
 
-
+//-Deleta a matriz
 void deletarMT(List** mt, int qntEstados, int tamAlfabeto)
 {
     for (int i = 0; i < qntEstados; i++)

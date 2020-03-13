@@ -1,10 +1,11 @@
-typedef struct Node
+//Node de lista ligada simples
+typedef struct Node 
 {
     int            data;
     struct Node*    next;
 }Node;
 
-
+//Lista Ligada simples
 typedef struct List
 {
     Node*   head;

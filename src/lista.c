@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "lista.h"
-
+//Cria um node
 Node* createNode(int _data)
 {
     Node* newNode = malloc(sizeof(Node));
@@ -13,7 +13,7 @@ Node* createNode(int _data)
 
     return newNode;
 }
-
+//Cria uma lista
 List* createList()
 {
     List* newList = malloc(sizeof(List));
@@ -24,6 +24,7 @@ List* createList()
     return newList;
 }
 
+//insere data na cabeca da lista l
 void inserir(List* l, int data)
 {
     Node* newNode = createNode(data);
@@ -33,7 +34,7 @@ void inserir(List* l, int data)
     }
 
 }
-
+//printa a lista
 void printList(List l)
 {
     Node* cursor = l.head;
@@ -47,7 +48,7 @@ void printList(List l)
     printf("]");
 }
 
-
+//deleta a lista
 void deleteList(List* l)
 {
     Node* aux = l->head;
