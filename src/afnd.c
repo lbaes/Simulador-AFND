@@ -58,7 +58,7 @@ int main(void)
     printf("Alfabeto: %s\n", quin.alfabeto);
     printf("Quantidade de estados: %d\n", quin.qntEstados);
     printf("Quantidade de estados finais: %d\n", quin.qntEstadosFinais);
-    printf("Estados Finais:\n");
+    printf("Estados Finais: ");
 
     for (int i = 0; i < quin.qntEstadosFinais; i++)
     {
