@@ -75,22 +75,26 @@ int main(void)
     //Salva cada palavra a ser analisada no vetor palavras
     for (int i = 0; i < nPalavras; i++)
     {
-        printf("Palavra %d: %s", i, palavras[i]);
 
-        //Faz a analise da palavra
+        printf("Palavra %d: %10s     ", i, palavras[i]);
+
+
+        //Faz a analise de cada palavra
         if (transicao(0, palavras[i], 0, quin.matriz, quin.listaEstadosFinais, quin.qntEstadosFinais, quin.alfabeto))
         {
-            printf(" ok..\n");
+            printf("ok..\n");
         }
         else
         {
-            printf(" not ok\n");
+            printf("not ok..\n");
         }
     }
 
     /*Liberando memoria alocada */
 
+    //Deleta o vetor palavras
     free(palavras);
+
     //Deleta a matriz de transicao
     deletarMT(quin.matriz, quin.qntEstados, quin.tamAlfabeto);
 }
