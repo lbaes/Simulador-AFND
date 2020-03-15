@@ -38,11 +38,11 @@ void inserir(List* l, int data)
 void printList(List l)
 {
     Node* cursor = l.head;
-    printf("[");
+    printf("[ ");
     while(cursor != NULL)
     {   
         if (cursor->data != -1)
-            printf(" %d ", cursor->data);
+            printf("%d ", cursor->data);
         cursor = cursor->next;
     }
     printf("]");
