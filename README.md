@@ -1,2 +1,2 @@
-# NFA-Simulator
- Nondeterministic finite automaton written in c
+# Simulador-AFND
+Simulador de Automatos finitos não deterministicos.
