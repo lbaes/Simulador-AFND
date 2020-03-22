@@ -32,16 +32,13 @@ int main(void)
 
     //Este loop preenche a matriz de transicao lendo o arquivo de entrada
     char c;
-    for (int i = 0, qIncial = 0, qFinal = 0; i < quin.numTrasicoes; i++)
+    for (int i = 0, qInicial = 0, qFinal = 0; i < quin.numTrasicoes; i++)
     {
-        fscanf(fp, "%d", &qIncial);
-        fscanf(fp, "%c", &c);
-        fscanf(fp, "%d", &qFinal);
-
-        inserir(&(quin.matriz[qIncial][indexOf(c, quin.alfabeto)]), qFinal);
+        fscanf(fp, "%d %c %d", &qInicial, &c, &qFinal);
+        inserir(&(quin.matriz[qInicial][indexOf(c, quin.alfabeto)]), qFinal);
     }
 
-    fscanf(fp, "%d", &nPalavras);       //le a quantidade de palavras a serem analisadas
+    fscanf(fp, "%d", &nPalavras);       //le a quantidade de palavras que serao analisadas
 
     //Este loop preenche o vetor palavras
     palavras = malloc(nPalavras * sizeof(char *)); 
