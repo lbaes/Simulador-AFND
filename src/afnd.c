@@ -31,7 +31,7 @@ int main(void)
     quin.matriz = alocarMT(quin.qntEstados, quin.tamAlfabeto); //aloca a matriz de transicao
 
     //Este loop preenche a matriz de transicao lendo o arquivo de entrada
-    char c;
+    int qInicial; char c; int qFinal;
     for (int i = 0, qInicial = 0, qFinal = 0; i < quin.numTrasicoes; i++)
     {
         fscanf(fp, "%d %c %d", &qInicial, &c, &qFinal);
