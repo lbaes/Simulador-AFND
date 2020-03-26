@@ -1,3 +1,18 @@
+/*
+Trabalho 1 - Simulador de AFnD
+
+Nós,
+
+Lucas Franchini Baes    31849202
+Filipe Montoto          31858945
+
+declaramos que
+
+todas as respostas são fruto de nosso próprio trabalho,
+não copiamos respostas de colegas externos à equipe,
+não disponibilizamos nossas respostas para colegas externos à equipe e
+não realizamos quaisquer outras atividades desonestas para nos beneficiar ou prejudicar outros.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,23 +31,23 @@ int main(void)
     /* Leitura do arquivo de entrada   */
     FILE *fp = fopen("entrada.txt", "r");
 
-    fscanf(fp, "%s", quin.alfabeto);            //le o alfabeto na primeira linha
+    fscanf(fp, "%s", quin.alfabeto);                        //le o alfabeto na primeira linha
     quin.tamAlfabeto = strlen(quin.alfabeto);
 
-    fscanf(fp, "%d", &(quin.qntEstados));       //le a quantidade de stados na segunda linha
-    fscanf(fp, "%d", &(quin.qntEstadosFinais)); //le a quantidade de stados finais na terceira linha
+    fscanf(fp, "%d", &(quin.qntEstados));                   //le a quantidade de stados na segunda linha
+    fscanf(fp, "%d", &(quin.qntEstadosFinais));             //le a quantidade de stados finais na terceira linha
 
     //salva os estados finais no vetor listaEstadosFinais
     for (int i = 0; i < quin.qntEstadosFinais; i++)
-        fscanf(fp, "%d", &(quin.listaEstadosFinais[i]));
+        fscanf(fp, "%d", &(quin.vetorEstadosFinais[i]));
         
     
-    fscanf(fp, "%d", &(quin.numTrasicoes));     // le o numero de transicoes na quarta linha
+    fscanf(fp, "%d", &(quin.numTrasicoes));                    // le o numero de transicoes na quarta linha
     quin.matriz = alocarMT(quin.qntEstados, quin.tamAlfabeto); //aloca a matriz de transicao
 
     //Este loop preenche a matriz de transicao lendo o arquivo de entrada
-    int qInicial; char c; int qFinal;
-    for (int i = 0, qInicial = 0, qFinal = 0; i < quin.numTrasicoes; i++)
+    int qInicial; char c; int qFinal;; int i;
+    for (i = 0, qInicial = 0, qFinal = 0; i < quin.numTrasicoes; i++)
     {
         fscanf(fp, "%d %c %d", &qInicial, &c, &qFinal);
         inserir(&(quin.matriz[qInicial][indexOf(c, quin.alfabeto)]), qFinal);
@@ -59,7 +74,7 @@ int main(void)
 
     for (int i = 0; i < quin.qntEstadosFinais; i++)
     {
-        printf("%d ", quin.listaEstadosFinais[i]);
+        printf("%d ", quin.vetorEstadosFinais[i]);
     }
 
     printf("\nNumero de transicoes: %d\n", quin.numTrasicoes);
@@ -77,7 +92,7 @@ int main(void)
 
 
         //Faz a analise de cada palavra
-        if (transicao(0, palavras[i], 0, quin.matriz, quin.listaEstadosFinais, quin.qntEstadosFinais, quin.alfabeto))
+        if (transicao(0, palavras[i], 0, quin.matriz, quin.vetorEstadosFinais, quin.qntEstadosFinais, quin.alfabeto))
         {
             printf("ok..\n");
         }
@@ -123,24 +138,24 @@ int isFinal(int q, int *eFinais, int tam)
 //Funcao recursiva que analisa a palavra
 int transicao(int qAtual, char *palavra, int pi, List **matriz, int *eFinais, int tam, char *alfabeto)
 {
-    List a;
+    List temp;
     Node *cursor;
     int indice = indexOf(palavra[pi], alfabeto);
 
-    a = matriz[qAtual][indice];
-    cursor = (a.head);
+    temp = matriz[qAtual][indice];
+    cursor = (temp.head);
 
-    if (isFinal(cursor->data, eFinais, tam) == 1 && palavra[pi+1] == '\0')
-    {
-        return 1;
-    }
-    else if (isFinal(cursor->data, eFinais, tam) == 0 && palavra[pi+1] == '\0')
-    {
-        return 0;
-    }
+    if (isFinal(cursor->data, eFinais, tam) == 1 && palavra[pi+1] == '\0')          /* --------------------*/
+    {                                                                               /*                     */
+        return 1;                                                                   /*                     */
+    }                                                                               /* Condicoes de parada */                                                                                 /*                     */
+    else if (isFinal(cursor->data, eFinais, tam) == 0 && palavra[pi+1] == '\0')     /*                     */
+    {                                                                               /*                     */
+        return 0;                                                                   /*                     */
+    }                                                                               /* --------------------*/
     while (cursor->data != -1)
-    {
-        if (transicao(cursor->data, palavra, pi + 1, matriz, eFinais, tam, alfabeto))
+    {                                                                                   /*Chama a funcao recursivamente*/
+        if (transicao(cursor->data, palavra, pi + 1, matriz, eFinais, tam, alfabeto))   /*para cada estado da lista temp*/
             return 1;
         cursor = cursor->next;
     }

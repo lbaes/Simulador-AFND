@@ -3,15 +3,15 @@
 typedef struct Quintupla
 {
 
-    char alfabeto[11]; //caracteres do alfabeto
-    int tamAlfabeto;   //tamanho do alfabeto, max 10
+    char alfabeto[11];      //string dos caracteres do alfabeto, max 10
+    int tamAlfabeto;        //tamanho do alfabeto, max 10
 
     int qntEstados;         //Quantidade de estados, max 20, numero Q
     int qntEstadosIniciais; //Quantidade de Estados inciais
     int qntEstadosFinais;   //Quantidade de Estado finais, numero F
-    int numTrasicoes;
+    int numTrasicoes;       //Numero de transicoes
 
-    int listaEstadosFinais[19]; //Lista dos estados finais, max 19
+    int vetorEstadosFinais[19]; //Lista dos estados finais, max 19
 
     List** matriz; //Matriz de transicao
 } Quintupla;
