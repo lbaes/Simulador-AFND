@@ -18,7 +18,6 @@ não realizamos quaisquer outras atividades desonestas para nos beneficiar ou pr
 #include <string.h>
 #include "quintupla.h"
 
-int *lerArquivo(char *nomeArquivo);
 int indexOf(char target, char *str);
 int transicao(int qAtual, char *palavra, int pi, List **matriz, int *eFinais, int tam, char *alfabeto);
 
@@ -30,6 +29,11 @@ int main(void)
 
     /* Leitura do arquivo de entrada   */
     FILE *fp = fopen("entrada.txt", "r");
+    if (fp == NULL)
+    {
+        printf("Erro ao abrir entrada.txt");
+        exit(1);
+    }
 
     fscanf(fp, "%s", quin.alfabeto);                        //le o alfabeto na primeira linha
     quin.tamAlfabeto = strlen(quin.alfabeto);
